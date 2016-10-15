@@ -36,9 +36,13 @@ def compress_str(string_in,dump_thes=1):
 def compare(input_list):
     #Compressing {title} into an un-puncuated, un-spaced, un-cased string
     for entry in input_list:      
-        entry.cmp_title = compress_str(entry.fields['title'])
-        entry.cmp_journal = compress_str(entry.fields['journal'])
-       
+        if 'title' in entry.fileds:
+            entry.cmp_title = compress_str(entry.fields['title'])
+        else: entry.cmp_title = ''
+        if 'journal' in entry.fileds:
+            entry.cmp_journal = compress_str(entry.fields['journal'])
+        else: entry.cmp_journal = ''
+           
     div = [[input_list[0]]]
     for i in range(1,len(input_list)):
         for j in range(len(div)):
