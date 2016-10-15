@@ -4,6 +4,7 @@ Simple IO functions to get pybtex.database.Entry objects out of and into
 files or strings.
 """
 
+from collections import OrderedDict
 import os
 
 from pybtex import database
@@ -25,7 +26,7 @@ def write_bib_entries(entries, fname=None):
     """Take an iterable of pybtex.database.Entry objects, and return a string.
     If fname is not None, write the string to a file before returning it.
     """
-    entries_dict = {e.key: e for e in entries}
+    entries_dict = OrderedDict((e.key, e) for e in entries)
     #assert len(entries) == len(entries_dict), 'Entries must have unique keys'
     btex_str = database.BibliographyData(
         entries=entries_dict).to_string('bibtex')
