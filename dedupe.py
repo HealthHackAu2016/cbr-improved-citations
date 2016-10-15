@@ -1,6 +1,6 @@
 #! python3
 import collections
-import itertools
+import os
 import sys
 
 import btx_io, choose_best, compare
@@ -27,7 +27,8 @@ def main(*filenames):
     out = sorted([choose_best.best_entry(g)
                   for g in grouped.values()], key=title_key)
     print(len(in_), len(out))
-    btx_io.write_bib_entries(out, fname='test_out.bib')
+    btx_io.write_bib_entries(out, fname='dedup_' + os.path.basename(
+        filenames[0]).replace('.txt', '.bib'))
 
 
 if __name__ == '__main__':
