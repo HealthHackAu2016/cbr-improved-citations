@@ -1,0 +1,134 @@
+﻿@article{RN7627,
+   author = {Abbassi-Ghozzi, I. and Jaouani, A. and Aissa, R. B. and Martinez-Urtaza, J. and Boudabous, A. and Gtari, M.},
+   title = {Antimicrobial resistance and molecular analysis of non-typhoidal Salmonella isolates from human in Tunisia},
+   journal = {Pathologie Biologie},
+   volume = {59},
+   number = {4},
+   pages = {207-212},
+   ISSN = {0369-8114},
+   DOI = {10.1016/j.patbio.2010.06.001},
+   url = {<Go to ISI>://WOS:000294379700004},
+   year = {2011},
+   type = {Journal Article}
+}
+
+@article{RN7628,
+   author = {Abd El Ghany, M. and Shi, X. and Li, Y. and Ansari, H. R. and Hill-Cawthorne, G. A. and Ho, Y. S. and Naeem, R. and Pickard, D. and Klena, J. D. and Xu, X. and Pain, A. and Hu, Q.},
+   title = {Genomic and Phenotypic Analyses Reveal the Emergence of an Atypical Salmonella enterica Serovar Senftenberg Variant in China},
+   journal = {J Clin Microbiol},
+   volume = {54},
+   number = {8},
+   pages = {2014-22},
+   ISSN = {0095-1137},
+   DOI = {10.1128/jcm.00052-16},
+   year = {2016},
+   type = {Journal Article}
+}
+
+@article{RN7629,
+   author = {AbdelGhani, S. M. and Moland, E. S. and Black, J. A. and Hanson, N. D. and Goering, R. V. and Amine, M. A. and Saafan, A. E. and Gaafar, M. and Younan, M. and Thomson, K. S.},
+   title = {First report of CTX-M-14 producing clinical isolates of Salmonella serovar Typhimurium from Egypt},
+   journal = {J Infect Dev Ctries},
+   volume = {4},
+   number = {1},
+   pages = {58-60},
+   ISSN = {1972-2680},
+   year = {2010},
+   type = {Journal Article}
+}
+
+@article{RN7630,
+   author = {Abd-Elghany, S. M. and Sallam, K. I. and Abd-Elkhalek, A. and Tamura, T.},
+   title = {Occurrence, genetic characterization and antimicrobial resistance of Salmonella isolated from chicken meat and giblets},
+   journal = {Epidemiol Infect},
+   volume = {143},
+   number = {5},
+   pages = {997-1003},
+   ISSN = {0950-2688},
+   DOI = {10.1017/s0950268814001708},
+   year = {2015},
+   type = {Journal Article}
+}
+
+@article{RN7631,
+   author = {Abd-Elghany, S. M. and Sallam, K. I. and Abd-Elkhalek, A. and Tamura, T.},
+   title = {Occurrence, genetic characterization and antimicrobial resistance of Salmonella isolated from chicken meat and giblets},
+   journal = {Epidemiology and Infection},
+   volume = {143},
+   number = {5},
+   pages = {997-1003},
+   ISSN = {09502688 (ISSN)},
+   DOI = {10.1017/S0950268814001708},
+   url = {https://www.scopus.com/inward/record.uri?eid=2-s2.0-84924603001&partnerID=40&md5=0502c1d6130f5ce3213cdd646d0e8f01},
+   year = {2015},
+   type = {Journal Article}
+}
+
+@article{RN7632,
+   author = {Abd-Elghany, S. M. and Sallam, K. I. and Abd-Elkhalek, A. and Tamura, T.},
+   title = {Occurrence, genetic characterization and antimicrobial resistance of Salmonella isolated from chicken meat and giblets},
+   journal = {Epidemiology and Infection},
+   volume = {143},
+   number = {5},
+   pages = {997-1003},
+   ISSN = {0950-2688},
+   DOI = {10.1017/s0950268814001708},
+   url = {<Go to ISI>://WOS:000351059300013},
+   year = {2015},
+   type = {Journal Article}
+}
+
+@article{RN15206,
+   author = {Abd-Elghany, S. M. and Sallam, K. I. and Abd-Elkhalek, A. and Tamura, T.},
+   title = {Occurrence, genetic characterization and antimicrobial resistance of Salmonella isolated from chicken meat and giblets},
+   journal = {Epidemiology and Infection},
+   volume = {143},
+   number = {5},
+   pages = {997-1003},
+   ISSN = {09502688 (ISSN)},
+   DOI = {10.1017/S0950268814001708},
+   url = {https://www.scopus.com/inward/record.uri?eid=2-s2.0-84924603001&partnerID=40&md5=0502c1d6130f5ce3213cdd646d0e8f01},
+   year = {2015},
+   type = {Journal Article}
+}
+
+@article{RN15207,
+   author = {Abd-Elghany, S. M. and Sallam, K. I. and Abd-Elkhalek, A. and Tamura, T.},
+   title = {Occurrence, genetic characterization and antimicrobial resistance of Salmonella isolated from chicken meat and giblets},
+   journal = {Epidemiology and Infection},
+   volume = {143},
+   number = {5},
+   pages = {997-1003},
+   ISSN = {0950-2688},
+   DOI = {10.1017/s0950268814001708},
+   url = {<Go to ISI>://WOS:000351059300013},
+   year = {2015},
+   type = {Journal Article}
+}
+
+@article{RN7633,
+   author = {Abdellah, C. and Fouzia, R. F. and Abdelkader, C. and Rachida, S. B. and Mouloud, Z.},
+   title = {Prevalence and anti-microbial susceptibility of Salmonella isolates from chicken carcasses and giblets in Meknes, Morocco},
+   journal = {African Journal of Microbiology Research},
+   volume = {3},
+   number = {5},
+   pages = {215-219},
+   ISSN = {1996-0808},
+   url = {<Go to ISI>://WOS:000270220500005},
+   year = {2009},
+   type = {Journal Article}
+}
+
+@article{RN7634,
+   author = {Abdel-Maksoud, M. and Abdel-Khalek, R. and El-Gendy, A. and Gamal, R. F. and Abdelhady, H. M. and House, B. L.},
+   title = {Genetic characterisation of multidrug-resistant Salmonella enterica serotypes isolated from poultry in Cairo, Egypt},
+   journal = {African Journal of Laboratory Medicine},
+   volume = {4},
+   number = {1},
+   pages = {7},
+   ISSN = {2225-2002},
+   DOI = {10.4102/ajlm.v4i1.158},
+   url = {<Go to ISI>://WOS:000360140400001},
+   year = {2015},
+   type = {Journal Article}
+}
