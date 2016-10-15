@@ -14,3 +14,9 @@ Tools
         Find the reference for a given quote, in PDFs
 
 All ideas provisional.
+
+
+Dev
+===
+We're using Python 3 (via Anaconda).  ``pip install pybtex`` to get the bibtex
+parser we're using.
