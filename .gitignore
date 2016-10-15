@@ -1,3 +1,7 @@
+# All bib files outside ./raw/
+*.bib
+!raw/*.bib
+
 # Ipython stuff
 *.ipynb
 .ipynb_checkpoints

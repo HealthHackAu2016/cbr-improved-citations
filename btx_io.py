@@ -26,10 +26,10 @@ def write_bib_entries(entries, fname=None):
     If fname is not None, write the string to a file before returning it.
     """
     entries_dict = {e.key: e for e in entries}
-    assert len(entries) == len(entries_dict), 'Entries must have unique keys'
+    #assert len(entries) == len(entries_dict), 'Entries must have unique keys'
     btex_str = database.BibliographyData(
         entries=entries_dict).to_string('bibtex')
     if fname is not None:
-        with open(fname, 'w') as f:
+        with open(fname, 'w', encoding='latin1') as f:
             f.write(btex_str)
     return btex_str
