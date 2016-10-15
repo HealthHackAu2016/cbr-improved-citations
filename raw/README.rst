@@ -1,6 +1,12 @@
-Input Files
-###########
+BibTex files
+############
 
-Inputs are Bibtext files.  This directory contains ``raw/endnote/``, for
-files exported by endnote, and ``raw/jabref/``, for files exported by
-jabref.
+These files are exported from Endnote, without using plugins.
+
+In Endnote:
+
+- Go to the ``Edit > Output Styles > Style Manager`` menu
+- select 'BibTex export'
+- select all items (ctrl-a)
+- `File > Export`
+- save file
