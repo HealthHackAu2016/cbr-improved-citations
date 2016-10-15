@@ -1,3 +1,7 @@
+# Ipython stuff
+*.ipynb
+.ipynb_checkpoints
+
 # Emacs
 *.bak
 
