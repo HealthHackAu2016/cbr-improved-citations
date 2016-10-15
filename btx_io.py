@@ -27,6 +27,8 @@ def write_bib_entries(entries, fname=None):
     If fname is not None, write the string to a file before returning it.
     """
     entries_dict = OrderedDict((e.key, e) for e in entries)
+    if not entries_dict:
+        return ''
     #assert len(entries) == len(entries_dict), 'Entries must have unique keys'
     btex_str = database.BibliographyData(
         entries=entries_dict).to_string('bibtex')
