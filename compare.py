@@ -1,4 +1,3 @@
-
 import unidecode
 import string
 import difflib
@@ -12,7 +11,7 @@ def compress_str(string_in,dump_thes=1):
     if dump_thes:
         cmp = cmp.replace('the', '')
     return cmp
-
+    
 
 def compare(input_list):
     #Compressing {title} into an un-puncuated, un-spaced, un-cased string
@@ -23,7 +22,7 @@ def compare(input_list):
     for inp in input_list[1:]:
         for divj in div:
             divj_title = divj[0].cmp_title
-            cmp_score = len(difflib.get_close_matches(divj_title, [inp.cmp_title], cutoff=0.8))
+            cmp_score = len(difflib.get_close_matches(divj_title, [inp.cmp_title], cutoff=0.9))
             if cmp_score:  #add duplicate
                 divj.append(inp)
                 break
