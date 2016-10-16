@@ -68,7 +68,7 @@ def write_summary(pt_dup, title_diff, uniques, fname):
     return s
 
 #Takes a list of fileneames and the out fname
-def second_pass(filenames, fname=None):
+def second_pass(filenames, fname=None, silent=False):
     in_ = list(btx_io.read_bib_entries(*filenames))
     if fname is None:
         fname = 'CITeX_annotated_' + os.path.basename(
@@ -79,9 +79,15 @@ def second_pass(filenames, fname=None):
     for g in group_year:
         dups, unique_inst = compare.compare(g)
         for occ in dups: pt_dup.append(occ)
-        for occ in unique_inst: uniques.append(occ)
+        for unq in unique_inst: uniques.append(unq)
     title_diff = diff_titles(pt_dup)
     write_summary(pt_dup, title_diff, uniques, fname)
+    
+    if not silent:
+        print('There are {} references in the input {}'.format(
+              len(in_), 'files' if len(filenames) > 1 else 'file'))
+        print('{} references were found with no heuristic match of title'.format(len(uniques)))
+        print('{} sets of references have been highlighted for your attention in '.format(len(pt_dup))+str(fname))
     return pt_dup, title_diff
 
 
