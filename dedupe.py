@@ -10,7 +10,6 @@ import itertools
 import os
 
 import btx_io, choose_best, compare
-from setup import __version__
 
 
 def title_key(entry):
@@ -63,9 +62,10 @@ def main(filenames, out_dir, silent=False):
     write(dus, 'dupes_')
 
 def get_args():
+    with open('VERSION.txt') as f:
+        version = f.read().strip()
     parser = argparse.ArgumentParser(description=__doc__.strip())
-    parser.add_argument('-V', '--version', action='version',
-                        version=__version__)
+    parser.add_argument('-V', '--version', action='version', version=version)
     parser.add_argument('files', type=str, nargs='+',
                         help='the filenames to process')
     parser.add_argument('-o', '--output-dir', default='out', metavar='DIR',
