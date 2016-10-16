@@ -2,6 +2,7 @@
 import unidecode
 import string
 import distance
+import difflib
 
 
 def compress_str(string_in,dump_thes=1):
@@ -18,18 +19,19 @@ def compare(input_list):
     #Compressing {title} into an un-puncuated, un-spaced, un-cased string
     for entry in input_list:
         entry.cmp_title = compress_str(entry.fields.get('title', ''))
-        entry.cmp_journal = compress_str(entry.fields.get('journal', ''))
-
+        
     div = [[input_list[0]]]
     for inp in input_list[1:]:
         for divj in div:
             divj_title = divj[0].cmp_title
-            a, b = set(divj_title), set(inp.cmp_title)
-            cmp_score = len(a&b) / len(a|b)
-            #print(cmp_score)
-            if cmp_score > 0.95:  #add duplicate
+            cmp_score = len(difflib.get_close_matches(divj_title, [inp.cmp_title], cutoff=0.8))
+            if cmp_score:  #add duplicate
                 divj.append(inp)
                 break
         else:
             div.append([inp])
-    return div
+    
+    out=[]
+    for d in div:
+        if len(d) > 1: out.append(d)
+    return out

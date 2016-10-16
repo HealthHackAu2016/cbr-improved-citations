@@ -30,7 +30,10 @@ def main(*filenames):
     btx_io.write_bib_entries(out, fname='dedup_' + os.path.basename(
         filenames[0]).replace('.txt', '.bib'))
 
-
+    return(out)
+    
+'''
 if __name__ == '__main__':
     # TODO:  use argparse for CLI
     main(sys.argv[1])
+'''
