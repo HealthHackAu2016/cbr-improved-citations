@@ -1,10 +1,19 @@
 #! python3
+"""
+A tool to sort Bibtex references, and split them into a file each for unique
+references, the best of each set of duplicate references, and the remaining
+duplicates (so that no references are ever lost).
+"""
+import argparse
 import collections
 import itertools
 import os
 import sys
 
 import btx_io, choose_best, compare
+
+
+__version__ = '0.1.0'
 
 
 def title_key(entry):
@@ -19,15 +28,15 @@ def dump_titles(*filenames):
         f.write('\n'.join(out))
 
 
-def main(filenames):
+def main(filenames, out_dir):
     """Do the things."""
     grouped = collections.defaultdict(list)
     in_ = list(btx_io.read_bib_entries(*filenames))
     for e in in_:
         grouped[title_key(e)].append(e)
 
-    out = ((g[0] if len(g) == 1 else None, g[0] if len(g) > 1 else None,
-            g[1:]) for g in grouped.values())
+    out = ((g[0] if len(g) == 1 else None, g[0] if len(g) > 1 else None, g[1:])
+           for g in (choose_best.sorted_entries(g) for g in grouped.values()))
     uniq, dd, dus = zip(*out)
     dus = itertools.chain.from_iterable(dus)
     for group, name in zip((uniq, dd, dus), ('unique_', 'dedupe_', 'dupes_')):
@@ -35,10 +44,22 @@ def main(filenames):
         if group:
             print('{} {} references of {}'.format(len(group), name, len(in_)))
             btx_io.write_bib_entries(sorted(group, key=title_key),
-                                     fname=name + os.path.basename(
-                filenames[0]).replace('.txt', '.bib'))
+                                     fname=os.path.join(
+                out_dir, name + os.path.basename(
+                    filenames[0]).replace('.txt', '.bib')))
+
+
+def get_args():
+    parser = argparse.ArgumentParser(description=__doc__.strip())
+    parser.add_argument('-V', '--version', action='version',
+                        version=__version__)
+    parser.add_argument('files', type=str, nargs='+',
+                        help='the filenames to process')
+    parser.add_argument('-o', '--output-dir', default='.', metavar='DIR',
+                        help='directory for output files.')
+    return parser.parse_args()
 
 
 if __name__ == '__main__':
-    # TODO:  use argparse for CLI
-    main(sys.argv[1:])
+    args = get_args()
+    main(args.files, args.output_dir)
