@@ -29,7 +29,7 @@ Usage
 
 See ``citex --help`` for details
 
-For a single input files (L), citex outputs three files:  
+For a single input file (L) citex outputs three files:  
 
 - dedupe - the best selection of the duplicates (B)
 - dupes - the remaining duplicates (R)
