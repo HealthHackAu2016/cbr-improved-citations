@@ -1,4 +1,4 @@
-#! python3
+#! python
 """
 A tool to sort Bibtex references, and split them into a file each for unique
 references, the best of each set of duplicate references, and the remaining

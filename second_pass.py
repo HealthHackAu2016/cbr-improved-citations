@@ -1,8 +1,13 @@
+#! python
+"""
+TODO HELP TEXT
+"""
+import argparse
 import collections
-import unidecode
-import string
 import difflib
-import btx_io, choose_best, compare
+import os
+
+import btx_io, compare, dedupe
 
 
 def group_entries(entries):
@@ -32,23 +37,19 @@ def diff_titles(pt_dup):
     title_diff=[]
     for occ in pt_dup:
         if occ[0].fields['title'] and occ[1].fields['title']:
-            title1, title2 = occ[0].fields['title'].replace(' ','\n'),occ[1].fields['title'].replace(' ','\n')
-            diff = difflib.ndiff(title1.splitlines(keepends=True),title2.splitlines(keepends=True))       
-            title_diff.append(''.join(diff))
-        
+            title1, title2 = (occ[i].fields['title'].replace(' ','\n')
+                              .splitlines(keepends=True) for i in (0, 1))
+            title_diff.append(''.join(difflib.ndiff(title1, title2)))
         else:
             title_diff.append('')
-            print(c)
-            print(''.join(diff), end="")
-        
     return title_diff
-  
+
+
 def title_dump(entry):
     for inst in entry:
         print(inst.fields['title']+'\n')
 
-        
-        
+
 def write_summary(pt_dup, title_diff,fname):
     s=''
     lines = '=============================\n'
@@ -56,27 +57,38 @@ def write_summary(pt_dup, title_diff,fname):
         s+= lines
         s+= btx_io.write_bib_entries(pt_dup[i])+'\n\n'
         s+= title_diff[i]+'\n\n'
-        
+
     if fname is not None:
         with open(fname, 'w', encoding='latin1') as f:
             f.write(s)
     return s
-    
-    
-def second_pass(*filenames,fname=None):
-    in_ = list(btx_io.read_bib_entries(*filenames))
-    
-    group_year = group_entries(in_)
 
+
+def second_pass(filenames, fname=None):
+    in_ = list(btx_io.read_bib_entries(*filenames))
+    if fname is None:
+        fname = 'CITeX_annotated_' + os.path.basename(
+            filenames[0]).replace('.txt', '.bib')
+    group_year = group_entries(in_)
     pt_dup = []
     for g in group_year:
-        for occ in compare.compare(g): pt_dup.append(occ)
-
+        for occ in compare.compare(g):
+            pt_dup.append(occ)
     title_diff = diff_titles(pt_dup)
-        
-    write_summary(pt_dup, title_diff,fname)
-    
+    write_summary(pt_dup, title_diff, fname)
     return pt_dup, title_diff
-    
-    
 
+
+def get_args():
+    parser = argparse.ArgumentParser(description=__doc__.strip())
+    parser.add_argument('-V', '--version', action='version',
+                        version=dedupe.__version__)
+    parser.add_argument('files', type=str, nargs='+',
+                        help='the filenames to process')
+    parser.add_argument('-o', '--out_file', help='output filename (or auto)')
+    return parser.parse_args()
+
+
+def console():
+    args = get_args()
+    second_pass(args.files, args.out_file)
