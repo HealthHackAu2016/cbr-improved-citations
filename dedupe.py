@@ -8,7 +8,6 @@ import argparse
 import collections
 import itertools
 import os
-import sys
 
 import btx_io, choose_best, compare
 
@@ -28,7 +27,7 @@ def dump_titles(*filenames):
         f.write('\n'.join(out))
 
 
-def main(filenames, out_dir):
+def main(filenames, out_dir, silent=False):
     """Do the things."""
     grouped = collections.defaultdict(list)
     in_ = list(btx_io.read_bib_entries(*filenames))
@@ -38,16 +37,31 @@ def main(filenames, out_dir):
     out = ((g[0] if len(g) == 1 else None, g[0] if len(g) > 1 else None, g[1:])
            for g in (choose_best.sorted_entries(g) for g in grouped.values()))
     uniq, dd, dus = zip(*out)
-    dus = itertools.chain.from_iterable(dus)
-    for group, name in zip((uniq, dd, dus), ('unique_', 'dedupe_', 'dupes_')):
-        group = sorted((i for i in group if i is not None), key=title_key)
-        if group:
-            print('{} {} references of {}'.format(len(group), name, len(in_)))
-            btx_io.write_bib_entries(sorted(group, key=title_key),
-                                     fname=os.path.join(
-                out_dir, name + os.path.basename(
-                    filenames[0]).replace('.txt', '.bib')))
+    uniq = sorted((i for i in uniq if i is not None), key=title_key)
+    dd = sorted((i for i in dd if i is not None), key=title_key)
+    dus = list(itertools.chain.from_iterable(dus))
+    def write(group, tag):
+        if not group:
+            return
+        fname = os.path.basename(filenames[0]).replace('.txt', '.bib')
+        btx_io.write_bib_entries(sorted(group, key=title_key),
+                                 fname=os.path.join(out_dir, tag + fname))
 
+    # Now go through, printing descriptions and writing files out.
+    if not silent:
+        print('There are {} references in the input {}'.format(
+              len(in_), 'files' if len(filenames) > 1 else 'file'))
+        print('{} articles had no duplicate references'.format(len(uniq)))
+        print('{} articles had duplicate references'.format(len(dd)))
+        print('There were {} duplicate references in total'.format(
+              len(dd) + len(dus)))
+        print('The output contains {} unique references'.format(
+              len(uniq) + len(dd)))
+        print('That means we filtered out {:.1f}% of the library!'.format(
+              100 * len(dus) / len(in_)))
+    write(uniq, 'unique_')
+    write(dd, 'dedupe_')
+    write(dus, 'dupes_')
 
 def get_args():
     parser = argparse.ArgumentParser(description=__doc__.strip())
@@ -57,6 +71,8 @@ def get_args():
                         help='the filenames to process')
     parser.add_argument('-o', '--output-dir', default='.', metavar='DIR',
                         help='directory for output files.')
+    parser.add_argument('--silent', action='store_true',
+                        help='do not print statistics')
     return parser.parse_args()
 
 
