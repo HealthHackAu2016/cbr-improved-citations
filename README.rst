@@ -14,16 +14,13 @@ This project was a part of HealthHack 2016 in Canberra.
 
 Installation
 ============
-CiTeX is on PyPI, ``pip -m install citex`` to install.
+CiTeX is on PyPI, use ``pip -m install citex`` to install.
 
 
-Tools
+Usage
 =====
-
-:export:
-        Export from Endnote to BibTex with JabRef (external)
-:dedupe:
-        Deduplicate BibTex files, including close matches
+``citex "input files"``
+See ``citex --help`` for details
 
 		
 BibTex files
