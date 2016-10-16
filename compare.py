@@ -1,7 +1,6 @@
 
 import unidecode
 import string
-import distance
 
 
 def compress_str(string_in,dump_thes=1):

@@ -10,9 +10,7 @@ import itertools
 import os
 
 import btx_io, choose_best, compare
-
-
-__version__ = '0.1.0'
+from setup import __version__
 
 
 def title_key(entry):
@@ -77,6 +75,10 @@ def get_args():
     return parser.parse_args()
 
 
-if __name__ == '__main__':
+def console():
     args = get_args()
     main(args.files, args.output_dir)
+
+
+if __name__ == '__main__':
+    console()
