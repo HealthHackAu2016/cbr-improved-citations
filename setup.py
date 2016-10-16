@@ -8,7 +8,7 @@ See  https://packaging.python.org/en/latest/distributing.html
 import setuptools
 
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 
 with open('README.rst') as f:
@@ -45,7 +45,8 @@ config = dict(
     packages=['.'],
     install_requires=['pybtex', 'unidecode'],
     extras_require={},
-    entry_points={'console_scripts': ['citex=dedupe:console']},
+    entry_points={'console_scripts': [
+        'citex=dedupe:console', 'citex-check=second_pass:console']},
 )
 
 if __name__ == '__main__':

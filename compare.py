@@ -29,7 +29,9 @@ def compare(input_list):
         else:
             div.append([inp])
 
-    out=[]
+    dups=[]
+    unique=[]
     for d in div:
-        if len(d) > 1: out.append(d)
-    return out
+        if len(d) > 1: dups.append(d)
+        else: unique.append(d)                
+    return dups, unique
