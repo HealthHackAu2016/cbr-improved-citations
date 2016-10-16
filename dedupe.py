@@ -79,10 +79,6 @@ def console():
     args = get_args()
     main(args.files, args.output_dir)
 
-    return(out)
-    
 
 if __name__ == '__main__':
-    # TODO:  use argparse for CLI
-    main(sys.argv[1])
-
+    console()
