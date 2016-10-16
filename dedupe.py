@@ -13,7 +13,7 @@ import os
 import btx_io, choose_best, compare
 
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 
 def title_key(entry):

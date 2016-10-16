@@ -41,7 +41,7 @@ def diff_titles(pt_dup):
     for occ in pt_dup:
         if occ[0].fields['title'] and occ[1].fields['title']:
             title1, title2 = (occ[i].fields['title'].replace(' ','\n')
-                              .splitlines(keepends=True)+'\n' for i in (0, 1))
+                              .splitlines(keepends=True)+['\n'] for i in (0, 1))
             title_diff.append(''.join(difflib.ndiff(title1, title2)))
         else:
             title_diff.append('')

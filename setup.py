@@ -8,7 +8,7 @@ See  https://packaging.python.org/en/latest/distributing.html
 import setuptools
 
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 
 with open('README.rst') as f:
