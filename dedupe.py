@@ -43,6 +43,7 @@ def main(filenames, out_dir, silent=False):
     def write(group, tag):
         if not group:
             return
+        os.makedirs(out_dir, exist_ok=True)
         fname = os.path.basename(filenames[0]).replace('.txt', '.bib')
         btx_io.write_bib_entries(sorted(group, key=title_key),
                                  fname=os.path.join(out_dir, tag + fname))
@@ -69,8 +70,8 @@ def get_args():
                         version=__version__)
     parser.add_argument('files', type=str, nargs='+',
                         help='the filenames to process')
-    parser.add_argument('-o', '--output-dir', default='.', metavar='DIR',
-                        help='directory for output files.')
+    parser.add_argument('-o', '--output-dir', default='out', metavar='DIR',
+                        help='directory for output files.  default "./out/"')
     parser.add_argument('--silent', action='store_true',
                         help='do not print statistics')
     return parser.parse_args()
