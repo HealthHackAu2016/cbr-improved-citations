@@ -2,7 +2,8 @@
 """
 A tool to sort Bibtex references, and split them into a file each for unique
 references, the best of each set of duplicate references, and the remaining
-duplicates (so that no references are ever lost).
+duplicates (so that no references are ever lost).  Run citex again on the
+unique_* and dedupe_* output file to merge all unique references.
 """
 import argparse
 import collections
@@ -12,7 +13,7 @@ import os
 import btx_io, choose_best, compare
 
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 
 def title_key(entry):

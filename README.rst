@@ -14,29 +14,30 @@ This project was a part of HealthHack 2016 in Canberra.
 
 .. image:: citex.png
    :width: 250px
-   :align: center	
+   :align: center
 
 Installation
 ============
 
-CITeX is on PyPI, use ``pip -m install citex`` to install.
+CITeX is on PyPI, use ``python -m pip install --upgrade citex`` to install or update.
+If you do not have Python, download the latest version from https://python.org
 
 
 Usage
 =====
+Open a command prompt in the directory with your Bibtex files (see below).
 
-``citex input files``
+Run the ``citex`` or ``citex-check`` command followed by the files to process.
 
 See ``citex --help`` for details
 
-For a single input file (L) CITex outputs three files:  
+For any number (one or more) of input files (collectively L) CITex outputs three files:  
 
 - dedupe - the best selection of the duplicates (B)
 - dupes - the remaining duplicates (R)
 - unique - originial unique citations (U)
 
 
-		
 BibTex files
 ============
 

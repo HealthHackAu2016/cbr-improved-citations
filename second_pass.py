@@ -1,6 +1,9 @@
 #! python
 """
-TODO HELP TEXT
+Companion tool to citex, which heuristically matches close title names.
+The output is a single .bib file, with all references in the inputs grouped
+and annotated if they may be duplicates.  It is suggested to use this on the
+output of citex.
 """
 import argparse
 import collections
@@ -38,7 +41,7 @@ def diff_titles(pt_dup):
     for occ in pt_dup:
         if occ[0].fields['title'] and occ[1].fields['title']:
             title1, title2 = (occ[i].fields['title'].replace(' ','\n')
-                              .splitlines(keepends=True) for i in (0, 1))
+                              .splitlines(keepends=True)+'\n' for i in (0, 1))
             title_diff.append(''.join(difflib.ndiff(title1, title2)))
         else:
             title_diff.append('')
@@ -82,7 +85,7 @@ def second_pass(filenames, fname=None, silent=False):
         for unq in unique_inst: uniques.append(unq)
     title_diff = diff_titles(pt_dup)
     write_summary(pt_dup, title_diff, uniques, fname)
-    
+
     if not silent:
         print('There are {} references in the input {}'.format(
               len(in_), 'files' if len(filenames) > 1 else 'file'))
