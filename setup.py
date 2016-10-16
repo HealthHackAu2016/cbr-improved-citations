@@ -8,7 +8,7 @@ See  https://packaging.python.org/en/latest/distributing.html
 import setuptools
 
 
-__version__ = '0.1.5'
+__version__ = '0.2.0'
 
 
 with open('README.rst') as f:
@@ -33,6 +33,8 @@ config = dict(
         'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
         'Natural Language :: English',
         'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
