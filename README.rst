@@ -10,7 +10,11 @@ CiTeX searches through BibTeX files to search and remove duplicate entries.  It 
 
 This project was a part of HealthHack 2016 in Canberra.
 
-**Authors**: Aqeel Akber, Michael Barson, Sam Blackwell, Zac Hatfield-Dodds
+**Authors**: Aqeel Akber, Michael Barson, Sam Blackwell, Zac Hatfield-Dodds, Andrea Parisi
+
+.. image:: citex.png
+   :width: 250px
+   :align: center	
 
 Installation
 ============
