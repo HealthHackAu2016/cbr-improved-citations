@@ -5,6 +5,7 @@ files or strings.
 """
 
 from collections import OrderedDict
+from io import open
 import os
 
 from pybtex import database
@@ -18,8 +19,9 @@ def read_bib_entries(*locations):
         if os.path.isfile(loc):
             with open(loc, encoding='latin1') as f:
                 loc = f.read()
-        yield from database.parse_string(
-            loc.replace('}.' ,'},'), 'bibtex').entries.values()
+        for item in database.parse_string(
+                loc.replace('}.' ,'},'), 'bibtex').entries.values():
+            yield item
 
 
 def write_bib_entries(entries, fname=None):
