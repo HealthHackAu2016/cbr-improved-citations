@@ -50,20 +50,24 @@ def title_dump(entry):
         print(inst.fields['title']+'\n')
 
 
-def write_summary(pt_dup, title_diff,fname):
+def write_summary(pt_dup, title_diff, uniques, fname):
     s=''
-    lines = '=============================\n'
+    lines = '====================================\n\n'
     for i in range(len(pt_dup)):
         s+= lines
         s+= btx_io.write_bib_entries(pt_dup[i])+'\n\n'
         s+= title_diff[i]+'\n\n'
+
+    s+=lines+'\n\n\n\Entries not matched to anything else by fuzzy comparison of titles'+lines
+    for unq in uniques:
+        s+= btx_io.write_bib_entries(unq)+'\n'
 
     if fname is not None:
         with open(fname, 'w', encoding='latin1') as f:
             f.write(s)
     return s
 
-
+#Takes a list of fileneames and the out fname
 def second_pass(filenames, fname=None):
     in_ = list(btx_io.read_bib_entries(*filenames))
     if fname is None:
@@ -71,11 +75,13 @@ def second_pass(filenames, fname=None):
             filenames[0]).replace('.txt', '.bib')
     group_year = group_entries(in_)
     pt_dup = []
+    uniques = []
     for g in group_year:
-        for occ in compare.compare(g):
-            pt_dup.append(occ)
+        dups, unique_inst = compare.compare(g)
+        for occ in dups: pt_dup.append(occ)
+        for occ in unique_inst: uniques.append(occ)
     title_diff = diff_titles(pt_dup)
-    write_summary(pt_dup, title_diff, fname)
+    write_summary(pt_dup, title_diff, uniques, fname)
     return pt_dup, title_diff
 
 
