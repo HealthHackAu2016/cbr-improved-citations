@@ -30,6 +30,8 @@ def score_citation_entry(entry):
 
     return score
 
+def sorted_entries(entries):
+    return sorted(entries, key=score_citation_entry, reverse=True)
+
 def best_entry(entries):
-    return sorted([(score_citation_entry(e), e) for e in entries],
-                  key=lambda t: t[0])[-1][1]
+    return sort_entries(entries)[0]
