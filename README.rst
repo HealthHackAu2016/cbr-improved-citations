@@ -29,7 +29,7 @@ Usage
 
 See ``citex --help`` for details
 
-For a single input file (L) citex outputs three files:  
+For a single input file (L) CITex outputs three files:  
 
 - dedupe - the best selection of the duplicates (B)
 - dupes - the remaining duplicates (R)
@@ -46,6 +46,7 @@ In Endnote:
 
 - Go to the ``Edit > Output Styles > Style Manager`` menu
 - select 'BibTex export'
+- close Style Manager
 - select all items (ctrl-a)
 - `File > Export`
 - save file
