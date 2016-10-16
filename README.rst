@@ -19,7 +19,11 @@ CiTeX is on PyPI, use ``pip -m install citex`` to install.
 
 Usage
 =====
-``citex "input files"``
+``citex "input files"`` (L).  It outputs three files:  
+* "dedupe" - the best selection of the duplicates (B)
+* "dupes" - the remaining duplicates (R)
+* "unique" - originial unique citations (U)
+
 See ``citex --help`` for details
 
 		
