@@ -81,10 +81,8 @@ def console():
 
     return(out)
     
-'''
+
 if __name__ == '__main__':
-<<<<<<< HEAD
     # TODO:  use argparse for CLI
     main(sys.argv[1])
-'''
 
