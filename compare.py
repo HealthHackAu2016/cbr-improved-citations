@@ -1,7 +1,6 @@
 
 import unidecode
 import string
-import distance
 import difflib
 
 
@@ -19,7 +18,7 @@ def compare(input_list):
     #Compressing {title} into an un-puncuated, un-spaced, un-cased string
     for entry in input_list:
         entry.cmp_title = compress_str(entry.fields.get('title', ''))
-        
+
     div = [[input_list[0]]]
     for inp in input_list[1:]:
         for divj in div:
@@ -30,7 +29,7 @@ def compare(input_list):
                 break
         else:
             div.append([inp])
-    
+
     out=[]
     for d in div:
         if len(d) > 1: out.append(d)

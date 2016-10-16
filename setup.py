@@ -7,14 +7,16 @@ See  https://packaging.python.org/en/latest/distributing.html
 
 import setuptools
 
+
+__version__ = '0.1.4'
+
+
 with open('README.rst') as f:
     long_description = f.read()
-with open('VERSION.txt') as f:
-    version = f.read().strip()
 
 config = dict(
     name='CITeX',
-    version=version,
+    version=__version__,
     description='Tools to manage large BibTex libraries',
     long_description=long_description,
 

@@ -12,6 +12,9 @@ import os
 import btx_io, choose_best, compare
 
 
+__version__ = '0.1.4'
+
+
 def title_key(entry):
     return compare.compress_str(entry.fields.get('title', ''))
 
@@ -65,7 +68,8 @@ def get_args():
     with open('VERSION.txt') as f:
         version = f.read().strip()
     parser = argparse.ArgumentParser(description=__doc__.strip())
-    parser.add_argument('-V', '--version', action='version', version=version)
+    parser.add_argument('-V', '--version', action='version',
+                        version=__version__)
     parser.add_argument('files', type=str, nargs='+',
                         help='the filenames to process')
     parser.add_argument('-o', '--output-dir', default='out', metavar='DIR',
