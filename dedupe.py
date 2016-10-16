@@ -12,7 +12,7 @@ import os
 import btx_io, choose_best, compare
 
 
-__version__ = '0.1.4'
+__version__ = '0.1.5'
 
 
 def title_key(entry):
@@ -65,8 +65,6 @@ def main(filenames, out_dir, silent=False):
     write(dus, 'dupes_')
 
 def get_args():
-    with open('VERSION.txt') as f:
-        version = f.read().strip()
     parser = argparse.ArgumentParser(description=__doc__.strip())
     parser.add_argument('-V', '--version', action='version',
                         version=__version__)
