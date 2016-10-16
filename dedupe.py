@@ -12,7 +12,7 @@ import os
 import btx_io, choose_best, compare
 
 
-__version__ = '0.1.5'
+__version__ = '0.2.0'
 
 
 def title_key(entry):
@@ -43,7 +43,8 @@ def main(filenames, out_dir, silent=False):
     def write(group, tag):
         if not group:
             return
-        os.makedirs(out_dir, exist_ok=True)
+        if not os.path.isdir(out_dir):
+            os.makedirs(out_dir)
         fname = os.path.basename(filenames[0]).replace('.txt', '.bib')
         btx_io.write_bib_entries(sorted(group, key=title_key),
                                  fname=os.path.join(out_dir, tag + fname))
@@ -59,7 +60,7 @@ def main(filenames, out_dir, silent=False):
         print('The output contains {} unique references'.format(
               len(uniq) + len(dd)))
         print('That means we filtered out {:.1f}% of the library!'.format(
-              100 * len(dus) / len(in_)))
+              100 * len(dus) / float(len(in_))))
     write(uniq, 'unique_')
     write(dd, 'dedupe_')
     write(dus, 'dupes_')
