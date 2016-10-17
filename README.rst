@@ -11,6 +11,7 @@ CITeX searches through BibTeX files to search and remove duplicate entries.  It 
 This project was a part of HealthHack 2016 in Canberra.
 
 **Problem owner**: Andrea Parisi
+
 **Hackers**: Aqeel Akber, Michael Barson, Sam Blackwell, Zac Hatfield-Dodds
 
 .. image:: citex.png
