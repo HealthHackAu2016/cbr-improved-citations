@@ -12,7 +12,7 @@ This project was a part of HealthHack 2016 in Canberra.
 
 **Problem owner**: Andrea Parisi
 
-**Developers**: Aqeel Akber, Michael Barson, Sam Blackwell, Zac Hatfield-Dodds
+**Developers**: Aqeel Akber, Michael Barson, Sam Backwell, Zac Hatfield-Dodds
 
 .. image:: citex.png
    :width: 250px
