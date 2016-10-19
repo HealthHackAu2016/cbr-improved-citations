@@ -10,9 +10,7 @@ CITeX searches through BibTeX files to search and remove duplicate entries.  It 
 
 This project was a part of HealthHack 2016 in Canberra.
 
-**Problem owner**: Andrea Parisi
-
-**Developers**: Aqeel Akber, Michael Barson, Sam Backwell, Zac Hatfield-Dodds
+**Authors**: Aqeel Akber, Michael Barson, Sam Backwell, Zac Hatfield-Dodds, Andrea Parisi
 
 .. image:: citex.png
    :width: 250px
